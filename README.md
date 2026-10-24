@@ -15,14 +15,14 @@ Cargar datasets públicos desde Hugging Face Hub, aplicarles transformaciones de
 
 ## Necesidad analítica (AE2)
 
-Una compañía de telecomunicaciones necesita anticipar el **abandono de clientes** (*churn*). Cada registro del dataset es un cliente; a partir de su antigüedad, tipo de contrato, servicios contratados y facturación se busca identificar los factores asociados al abandono para diseñar acciones de retención. Esta primera etapa cubre la carga, exploración descriptiva y preparación del dataset.
+Una compañía de telecomunicaciones necesita anticipar el **abandono de clientes** (_churn_). Cada registro del dataset es un cliente; a partir de su antigüedad, tipo de contrato, servicios contratados y facturación se busca identificar los factores asociados al abandono para diseñar acciones de retención. Esta primera etapa cubre la carga, exploración descriptiva y preparación del dataset.
 
 ## Datasets usados
 
-| Entrega | Dataset | Split | Enlace |
-|---------|---------|-------|--------|
-| EA1 | `scikit-learn/iris` | `train` | https://huggingface.co/datasets/scikit-learn/iris |
-| AE2 | `scikit-learn/churn-prediction` | `train` | https://huggingface.co/datasets/scikit-learn/churn-prediction |
+| Entrega | Dataset                         | Split   | Enlace                                                        |
+| ------- | ------------------------------- | ------- | ------------------------------------------------------------- |
+| EA1     | `scikit-learn/iris`             | `train` | https://huggingface.co/datasets/scikit-learn/iris             |
+| AE2     | `scikit-learn/churn-prediction` | `train` | https://huggingface.co/datasets/scikit-learn/churn-prediction |
 
 ## Estructura de carpetas
 
@@ -77,19 +77,3 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
   - `churn_crudo.csv` — dataset Churn tal como se descargó.
   - `churn_transformado.csv` — tras las transformaciones de preparación.
   - `resumen_dataframe.txt` — resumen descriptivo del DataFrame transformado.
-
-## Documento de la AE2
-
-El documento Word se genera de forma reproducible:
-
-```bash
-python AE2/src/generar_documento.py
-```
-
-Lee la plantilla `AE2/documento/plantilla_iudigital.docx` y las salidas en `AE2/resultados/` (todas las cifras provienen de ahí) y produce `AE2/documento/Pedraza_Jeremy_AE2_Analitica_de_Datos.docx`.
-
-> **Nota:** al abrir el `.docx` en Word, seleccionar la tabla de contenido ("Contenido" y "Lista de tablas") y presionar **F9** para numerar las páginas e índices.
-
-## Seguridad
-
-No se publican tokens, credenciales ni archivos `.env`. El acceso a Hugging Face Hub se hace de forma anónima (datasets públicos).
