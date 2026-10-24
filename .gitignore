@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Entorno y sistema
+.env
+.DS_Store
+
+# Nota: la carpeta resultados/ (CSV y TXT) SI se versiona.
