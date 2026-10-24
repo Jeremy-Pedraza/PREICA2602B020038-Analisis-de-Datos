@@ -1,0 +1,157 @@
+============================================================
+RESUMEN DEL DATASET
+============================================================
+1. IDENTIFICACION
+------------------------------------------------------------
+   dataset_id      : scikit-learn/churn-prediction
+   split           : train
+   configuracion   : None
+   revision        : None
+   fecha_consulta  : 2026-10-24T16:02:41.145849+00:00
+   es_muestra      : False
+
+2. DIMENSIONES
+------------------------------------------------------------
+   filas    : 7043
+   columnas : 23
+
+3. COLUMNAS Y TIPOS
+------------------------------------------------------------
+   customer_id                    object
+   gender                         object
+   senior_citizen                 int64
+   partner                        object
+   dependents                     object
+   tenure                         int64
+   phone_service                  object
+   multiple_lines                 object
+   internet_service               object
+   online_security                object
+   online_backup                  object
+   device_protection              object
+   tech_support                   object
+   streaming_tv                   object
+   streaming_movies               object
+   contract                       object
+   paperless_billing              object
+   payment_method                 object
+   monthly_charges                float64
+   total_charges                  float64
+   churn                          object
+   cargo_promedio_mensual         float64
+   segmento_antiguedad            category
+
+4. VALORES NULOS POR COLUMNA
+------------------------------------------------------------
+   customer_id                           0  ( 0.00%)
+   gender                                0  ( 0.00%)
+   senior_citizen                        0  ( 0.00%)
+   partner                               0  ( 0.00%)
+   dependents                            0  ( 0.00%)
+   tenure                                0  ( 0.00%)
+   phone_service                         0  ( 0.00%)
+   multiple_lines                        0  ( 0.00%)
+   internet_service                      0  ( 0.00%)
+   online_security                       0  ( 0.00%)
+   online_backup                         0  ( 0.00%)
+   device_protection                     0  ( 0.00%)
+   tech_support                          0  ( 0.00%)
+   streaming_tv                          0  ( 0.00%)
+   streaming_movies                      0  ( 0.00%)
+   contract                              0  ( 0.00%)
+   paperless_billing                     0  ( 0.00%)
+   payment_method                        0  ( 0.00%)
+   monthly_charges                       0  ( 0.00%)
+   total_charges                         0  ( 0.00%)
+   churn                                 0  ( 0.00%)
+   cargo_promedio_mensual                0  ( 0.00%)
+   segmento_antiguedad                   0  ( 0.00%)
+
+5. FILAS DUPLICADAS
+------------------------------------------------------------
+   duplicados : 0
+
+6. ESTADISTICAS DESCRIPTIVAS (NUMERICAS)
+------------------------------------------------------------
+       senior_citizen       tenure  monthly_charges  total_charges  cargo_promedio_mensual
+count     7043.000000  7043.000000      7043.000000    7043.000000             7043.000000
+mean         0.162147    32.371149        64.761692    2279.734304               64.698184
+std          0.368612    24.559481        30.090047    2266.794470               30.270690
+min          0.000000     0.000000        18.250000       0.000000                0.000000
+25%          0.000000     9.000000        35.500000     398.550000               35.650000
+50%          0.000000    29.000000        70.350000    1394.550000               70.300000
+75%          0.000000    55.000000        89.850000    3786.600000               90.170000
+max          1.000000    72.000000       118.750000    8684.800000              121.400000
+
+7. FRECUENCIAS (CATEGORICAS, TOP 5)
+------------------------------------------------------------
+   [customer_id]
+      3186-AJIEK                     1
+      7590-VHVEG                     1
+      5575-GNVDE                     1
+      8775-CEBBJ                     1
+      2823-LKABH                     1
+   [gender]
+      Male                           3555
+      Female                         3488
+   [partner]
+      No                             3641
+      Yes                            3402
+   [dependents]
+      No                             4933
+      Yes                            2110
+   [phone_service]
+      Yes                            6361
+      No                             682
+   [multiple_lines]
+      No                             3390
+      Yes                            2971
+      No phone service               682
+   [internet_service]
+      Fiber optic                    3096
+      DSL                            2421
+      No                             1526
+   [online_security]
+      No                             3498
+      Yes                            2019
+      No internet service            1526
+   [online_backup]
+      No                             3088
+      Yes                            2429
+      No internet service            1526
+   [device_protection]
+      No                             3095
+      Yes                            2422
+      No internet service            1526
+   [tech_support]
+      No                             3473
+      Yes                            2044
+      No internet service            1526
+   [streaming_tv]
+      No                             2810
+      Yes                            2707
+      No internet service            1526
+   [streaming_movies]
+      No                             2785
+      Yes                            2732
+      No internet service            1526
+   [contract]
+      Month-to-month                 3875
+      Two year                       1695
+      One year                       1473
+   [paperless_billing]
+      Yes                            4171
+      No                             2872
+   [payment_method]
+      Electronic check               2365
+      Mailed check                   1612
+      Bank transfer (automatic)      1544
+      Credit card (automatic)        1522
+   [churn]
+      No                             5174
+      Yes                            1869
+   [segmento_antiguedad]
+      49+                            2239
+      0-12                           2186
+      25-48                          1594
+      13-24                          1024
