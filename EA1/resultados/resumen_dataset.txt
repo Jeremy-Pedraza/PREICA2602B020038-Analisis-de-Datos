@@ -1,0 +1,67 @@
+============================================================
+RESUMEN DEL DATASET
+============================================================
+1. IDENTIFICACION
+------------------------------------------------------------
+   dataset_id      : scikit-learn/iris
+   split           : train
+   configuracion   : None
+   revision        : None
+   fecha_consulta  : 2026-10-24T16:00:42.397393+00:00
+   es_muestra      : False
+
+2. DIMENSIONES
+------------------------------------------------------------
+   filas    : 147
+   columnas : 9
+
+3. COLUMNAS Y TIPOS
+------------------------------------------------------------
+   largo_sepalo                   float64
+   ancho_sepalo                   float64
+   largo_petalo                   float64
+   ancho_petalo                   float64
+   especie                        object
+   area_sepalo                    float64
+   area_petalo                    float64
+   razon_petalo_sepalo            float64
+   tamano_flor                    category
+
+4. VALORES NULOS POR COLUMNA
+------------------------------------------------------------
+   largo_sepalo                          0  ( 0.00%)
+   ancho_sepalo                          0  ( 0.00%)
+   largo_petalo                          0  ( 0.00%)
+   ancho_petalo                          0  ( 0.00%)
+   especie                               0  ( 0.00%)
+   area_sepalo                           0  ( 0.00%)
+   area_petalo                           0  ( 0.00%)
+   razon_petalo_sepalo                   0  ( 0.00%)
+   tamano_flor                           0  ( 0.00%)
+
+5. FILAS DUPLICADAS
+------------------------------------------------------------
+   duplicados : 0
+
+6. ESTADISTICAS DESCRIPTIVAS (NUMERICAS)
+------------------------------------------------------------
+       largo_sepalo  ancho_sepalo  largo_petalo  ancho_petalo  area_sepalo  area_petalo  razon_petalo_sepalo
+count    147.000000    147.000000    147.000000    147.000000   147.000000   147.000000           147.000000
+mean       5.856463      3.055782      3.780272      1.208844    17.856735     5.843401             0.316825
+std        0.829100      0.437009      1.759111      0.757874     3.384286     4.704338             0.234381
+min        4.300000      2.000000      1.000000      0.100000    10.000000     0.110000             0.007036
+25%        5.100000      2.800000      1.600000      0.300000    15.660000     0.435000             0.024307
+50%        5.800000      3.000000      4.400000      1.300000    17.690000     5.640000             0.339432
+75%        6.400000      3.300000      5.100000      1.800000    20.400000     9.745000             0.513105
+max        7.900000      4.400000      6.900000      2.500000    30.020000    15.870000             0.792707
+
+7. FRECUENCIAS (CATEGORICAS, TOP 5)
+------------------------------------------------------------
+   [especie]
+      Versicolor                     50
+      Virginica                      49
+      Setosa                         48
+   [tamano_flor]
+      Pequena                        68
+      Mediana                        51
+      Grande                         28
