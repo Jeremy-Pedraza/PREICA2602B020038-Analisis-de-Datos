@@ -10,8 +10,8 @@ Cargar datasets públicos desde Hugging Face Hub, aplicarles transformaciones de
 
 - **Asignatura:** Proyecto Integrado III – Analítica de Datos
 - **Código:** PREICA2602B020038
-- **Docente:** Jeremy Pedraza
-- **Integrante:** Jeremy Pedraza
+- **Docente:** Andrés Felipe Callejas Jaramillo
+- **Integrante:** Jeremy Iván Pedraza Hernández (Grupo 1)
 
 ## Necesidad analítica (AE2)
 
@@ -31,10 +31,6 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── docs/
-│   ├── master.md
-│   ├── plans/plan-ea1-ae2.md
-│   └── checkpoints/2026-10-24-sesion-01.md
 ├── EA1/
 │   ├── src/                 # HFDatasetLoader + DatasetSummarizer
 │   ├── notebooks/           # ea1_carga_y_transformaciones.ipynb
@@ -66,6 +62,8 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
    jupyter nbconvert --to notebook --execute --inplace AE2/notebooks/ae2_exploracion_descriptiva.ipynb
    ```
    O abrirlos con `jupyter notebook` y ejecutar todas las celdas.
+
+   **Google Colab:** el notebook de AE2 también corre en Colab sin configuración manual. La primera celda detecta el entorno: si no encuentra las clases en local, clona este repositorio e instala `datasets` automáticamente. Basta con `Runtime → Run all`. Requiere que el repositorio sea público (el clon usa HTTPS).
 
 ## Archivos generados
 
