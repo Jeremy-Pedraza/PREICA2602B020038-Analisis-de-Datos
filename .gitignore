@@ -11,4 +11,8 @@ venv/
 .env
 .DS_Store
 
+# Herramientas y notas internas (no se versionan)
+docs/
+.serena/
+
 # Nota: la carpeta resultados/ (CSV y TXT) SI se versiona.
