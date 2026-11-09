@@ -1,0 +1,136 @@
+S30 - AE3 Proyecto integrador - Transformación y Enriquecimiento de Datos
+Fecha de entrega Domingo a las 23:59 Puntos 0 Entregando una URL de página web o una carga de archivo Intentos 0 Intentos permitidos 2 Disponible 26 de oct en 0:00 - 8 de nov en 23:59
+ANALÍTICA DE DATOS · PROYECTO INTEGRADOR · SEGUNDA ETAPA
+
+AE3 S30 - Proyecto integrador - Transformación y Enriquecimiento de Datos
+Objetivo
+Objetivo y alcance
+Transformar y enriquecer el dataset para responder descriptivamente las preguntas de negocio y la necesidad definidas en AE2. Organiza los resultados en tablas y deja la información preparada para su presentación gráfica en AE4.
+
+Continúa con el mismo proyecto, dataset y repositorio. Justifica cualquier ajuste a las preguntas, las variables o el alcance.
+
+Instrucciones
+Instrucciones
+La entrega incluye un notebook ejecutado, los datos preparados y el documento de avance actualizado. Cada transformación debe aportar a la necesidad del proyecto.
+
+Flujo: dataset de AE2 → transformación y enriquecimiento → respuestas a las preguntas de negocio → tablas de resultados y archivos exportados.
+
+En Triple A realizaremos ejercicios prácticos orientados al desarrollo de la actividad. Lleva tus avances y preguntas.
+
+1. Preguntas2. Transformación3. Enriquecimiento4. Resultados5. Documento6. Repositorio
+1. Retoma las preguntas de negocio
+Al inicio del notebook, presenta la necesidad, las preguntas y las variables que utilizarás para responderlas. Carga el dataset seleccionado y conserva una versión sin modificar para comparar los cambios.
+
+Evidencia: relación entre cada pregunta, las variables necesarias y el resultado esperado. Si falta información, declara la limitación o justifica un ajuste del alcance.
+
+2. Transforma y valida los datos
+Prepara el DataFrame mediante código. Aplica las operaciones que requieran tus datos:
+
+Corregir tipos y formatos de fechas o valores numéricos.
+Revisar valores faltantes, duplicados e inconsistencias y justificar su tratamiento.
+Normalizar categorías y unidades cuando corresponda.
+Seleccionar columnas y registros pertinentes al alcance del proyecto.
+Explica qué cambió, por qué y cuántos registros fueron afectados. Si un control no detecta problemas, informa el resultado. No elimines datos ni reemplaces faltantes sin justificar el criterio.
+
+Evidencia: código ejecutado y comparación de filas, columnas, tipos y valores nulos antes y después.
+
+3. Enriquece la información para el análisis
+Incorpora variables calculadas, categorías, periodos o indicadores derivados que aporten al análisis. Si combinas otra tabla, documenta su origen y la clave de relación, y comprueba que la unión no multiplique registros o importes indebidamente.
+
+Ejemplo: con datos de un restaurante, calcular el valor vendido a partir de cantidad y precio, obtener el mes desde la fecha o clasificar los productos por categoría. Utiliza operaciones respaldadas por las variables disponibles.
+
+Evidencia: variables incorporadas, su fórmula o regla, significado y utilidad para responder las preguntas. El enriquecimiento puede realizarse con los datos existentes; utiliza otra fuente solo cuando la necesidad lo justifique.
+
+4. Responde las preguntas y estructura los resultados
+Para cada pregunta de negocio, realiza las agrupaciones, comparaciones o cálculos pertinentes y explica la respuesta sustentada en los resultados.
+
+Presenta una tabla por pregunta, con nombres claros, unidades y nivel de detalle definido: producto, categoría, periodo u otro pertinente.
+Interpreta los hallazgos, su utilidad para la necesidad y las limitaciones de la respuesta.
+Exporta automáticamente el dataset preparado y las tablas de resultados en archivos .csv para reutilizarlos en la visualización.
+Genera automáticamente un archivo .txt con la información descriptiva del DataFrame transformado y enriquecido, siguiendo lo trabajado en clase Triple A. Incluye cantidad de filas y columnas, nombres y tipos de columnas, valores nulos y estadísticas descriptivas pertinentes. Guárdalo en el repositorio y regénéralo en cada ejecución.
+Ejemplo: para “¿qué productos aportan más ventas?”, generar una tabla por producto con unidades, valor vendido y participación. Sin datos de costos no puede afirmarse cuál producto es más rentable.
+
+Verifica que los totales y porcentajes sean consistentes y que los archivos exportados coincidan con el notebook. Esta entrega se centra en los datos y las tablas que sustentan las respuestas; no exige una presentación gráfica final.
+
+Evidencia: notebook con respuestas interpretadas, dataset preparado, tablas de resultados y resumen .txt generados por el código.
+
+5. Documenta las decisiones y los resultados
+Actualiza el Word iniciado en AE2 y desarrolla los apartados correspondientes al avance:
+
+Metodología: transformaciones, reglas de calidad, enriquecimiento y procedimiento utilizado para responder cada pregunta.
+Diccionario actualizado: variables utilizadas e incorporadas, con significado, tipo y unidad.
+Resultados y discusión: tablas, respuestas a las preguntas, interpretación y limitaciones.
+Conclusiones del avance: qué permite conocer el análisis respecto a la necesidad y qué aspectos quedan sin resolver.
+Referencias e índices: actualiza las fuentes y los índices de los elementos incluidos.
+Evidencia: documento .docx coherente con el notebook y los archivos exportados. Explica las decisiones; evita sustituirlas por capturas de código.
+
+6. Versiona y organiza las evidencias
+Utiliza el mismo repositorio y organiza esta entrega en una carpeta AE3, conservando la entrega anterior.
+
+Publica el notebook ejecutado, los archivos .py que utilice, el documento actualizado, el dataset preparado, las tablas .csv y el resumen .txt.
+Actualiza el README.md con las transformaciones y enriquecimientos realizados, las preguntas de negocio abordadas, los pasos de ejecución y las rutas del dataset preparado, las tablas de resultados y el archivo descriptivo .txt.
+Incluye las dependencias, registra avances con commits descriptivos y verifica el acceso del docente.
+Como se viene trabajando en Triple A, el notebook debe generar el archivo descriptivo .txt mediante código, a partir del DataFrame final. Verifica que su contenido corresponda a los datos de esa ejecución. El notebook debe reproducir las transformaciones, los cálculos y las exportaciones con rutas relativas. Comparte únicamente datos cuya publicación esté permitida; si existe una restricción, documenta el acceso y el procedimiento autorizado de reproducción.
+
+Entregar
+Entregar
+Adjunta el documento actualizado en Word en esta actividad.
+Comparte el enlace del repositorio de GitHub con el notebook, el README actualizado, los datos preparados, las tablas y el archivo descriptivo .txt generado automáticamente.
+Verifica el acceso a los archivos y confirma el envío en la plataforma.
+La fecha, el porcentaje y las condiciones de evaluación son los publicados en la plataforma.
+
+Recordatorio
+Lista de revisión antes de entregar
+Retomé la necesidad y las preguntas de AE2 y justifiqué los ajustes.
+Las transformaciones y el enriquecimiento están implementados, explicados y validados.
+Cada pregunta tiene una respuesta descriptiva sustentada en una tabla.
+El código exporta los datos preparados, las tablas y el resumen .txt; sus valores coinciden con el notebook.
+El documento registra el avance y coincide con las evidencias del código.
+Actualicé el README.md y publiqué el .txt descriptivo generado automáticamente, según lo trabajado en Triple A. El repositorio incluye los archivos y commits de avance.
+Foco de la evaluación: que los datos transformados y enriquecidos permitan responder las preguntas de negocio y que los resultados queden organizados para su representación gráfica.
+
+Rúbrica
+Rúbrica AE3 – Transformación y Enriquecimiento de Datos
+Rúbrica AE3 – Transformación y Enriquecimiento de Datos
+Criterios	Calificaciones	Pts
+Este criterio depende de una competencia de aprendizajePuntualidad y enlace de entrega
+10 para >6.0 pts
+Entrega dentro del plazo e incluye un enlace válido y accesible al repositorio de GitHub.
+6 para >0.0 pts
+Entrega dentro del plazo, pero el enlace presenta errores o no permite acceder al repositorio.
+0 pts
+Entrega fuera del plazo o no incluye el enlace.
+10 pts
+Este criterio depende de una competencia de aprendizajeDocumento — Transformación y enriquecimiento
+30 para >18.0 pts
+Documenta las transformaciones, reglas de calidad y variables incorporadas. Justifica las decisiones y su relación con las preguntas de negocio. Actualiza el diccionario de datos.
+18 para >0.0 pts
+Documenta parcialmente los cambios, pero faltan justificaciones, controles o la actualización del diccionario.
+0 pts
+No documenta la transformación y el enriquecimiento de los datos.
+30 pts
+Este criterio depende de una competencia de aprendizajeDocumento — Resultados y respuestas a la necesidad
+25 para >15.0 pts
+Presenta tablas e interpretaciones que responden las preguntas de AE2, reconoce limitaciones y actualiza las conclusiones del avance. Los resultados coinciden con el notebook.
+15 para >0.0 pts
+Presenta resultados, pero responde parcialmente las preguntas o existen inconsistencias con el notebook.
+0 pts
+No presenta resultados que permitan responder las preguntas de negocio.
+25 pts
+Este criterio depende de una competencia de aprendizajeCódigo — Jupyter, datos preparados y resumen .txt
+25 para >15.0 pts
+El notebook ejecuta las transformaciones y el enriquecimiento, valida los resultados y exporta los datos y tablas. Genera automáticamente el .txt descriptivo del DataFrame final, según lo trabajado en Triple A.
+15 para >0.0 pts
+Presenta el notebook, pero el flujo tiene errores, faltan exportaciones o el .txt está incompleto o no corresponde al DataFrame final.
+0 pts
+No presenta código ejecutable que evidencie la transformación y el enriquecimiento de los datos.
+25 pts
+Este criterio depende de una competencia de aprendizajeVersionamiento en GitHub y README
+10 para >6.0 pts
+El repositorio contiene los archivos de la entrega, commits de avance y un README actualizado con los cambios, pasos de ejecución y rutas de resultados.
+6 para >0.0 pts
+El repositorio está disponible, pero faltan archivos, el README está incompleto o no evidencia avances mediante commits.
+0 pts
+No presenta el proyecto en un repositorio de GitHub.
+10 pts
+Puntos totales: 100

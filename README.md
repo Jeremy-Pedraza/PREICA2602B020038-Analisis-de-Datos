@@ -1,6 +1,6 @@
 # PREICA2602B020038 - Analítica de Datos
 
-Repositorio de las entregas **EA1** (carga y creación de dataset) y **AE2** (primera etapa del proyecto integrador) de la asignatura Proyecto Integrado III – Analítica de Datos.
+Repositorio de las entregas **EA1** (carga y creación de dataset), **AE2** (primera etapa del proyecto integrador) y **EA3** (transformación y enriquecimiento) de la asignatura Proyecto Integrado III – Analítica de Datos.
 
 ## Propósito
 
@@ -15,7 +15,23 @@ Cargar datasets públicos desde Hugging Face Hub, aplicarles transformaciones de
 
 ## Necesidad analítica (AE2)
 
-Una compañía de telecomunicaciones necesita anticipar el **abandono de clientes** (_churn_). Cada registro del dataset es un cliente; a partir de su antigüedad, tipo de contrato, servicios contratados y facturación se busca identificar los factores asociados al abandono para diseñar acciones de retención. Esta primera etapa cubre la carga, exploración descriptiva y preparación del dataset.
+Una compañía de telecomunicaciones necesita anticipar el **abandono de clientes** (_churn_). Cada registro del dataset es un cliente; a partir de su antigüedad, tipo de contrato, servicios contratados y facturación se busca identificar los factores asociados al abandono para diseñar acciones de retención. La primera etapa (AE2) cubre la carga, exploración descriptiva y preparación del dataset.
+
+## Transformación y enriquecimiento (EA3)
+
+La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma y enriquece los datos para responder, de forma descriptiva, cinco **preguntas de negocio** derivadas de la necesidad:
+
+| #  | Pregunta de negocio                                                        | Tabla de resultados                        |
+| -- | ------------------------------------------------------------------------- | ------------------------------------------ |
+| P1 | ¿Qué tipo de contrato concentra mayor tasa de cancelación?                | `tabla_p1_churn_por_contrato.csv`          |
+| P2 | ¿Cómo varía la cancelación según la antigüedad del cliente?               | `tabla_p2_churn_por_antiguedad.csv`        |
+| P3 | ¿Qué método de pago y servicio de internet se asocian con más churn?      | `tabla_p3a_*.csv`, `tabla_p3b_*.csv`       |
+| P4 | ¿Cómo difieren los cargos entre quienes cancelan y permanecen?            | `tabla_p4_cargos_por_churn.csv`            |
+| P5 | ¿Influye la cantidad de servicios adicionales en la cancelación?          | `tabla_p5_churn_por_num_servicios.csv`     |
+
+**Transformaciones (validadas con conteo de registros afectados):** T1 renombrado a `snake_case`; T2 conversión de `total_charges` a numérico (`pd.to_numeric(errors='coerce')`); T3 imputación de los 11 nulos de `total_charges` (clientes con `tenure = 0`) con `0.0`. Sin duplicados; sin nulos tras el tratamiento.
+
+**Enriquecimiento (variables derivadas, sin fuentes externas):** `cargo_promedio_mensual` y `segmento_antiguedad` (de AE2); `churn_flag` (objetivo numérico), `num_servicios_adicionales` (conteo de 6 add-ons) y `grupo_cargo_mensual` (nivel de gasto). DataFrame final: 7043 filas × 26 columnas.
 
 ## Datasets usados
 
@@ -23,6 +39,7 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
 | ------- | ------------------------------- | ------- | ------------------------------------------------------------- |
 | EA1     | `scikit-learn/iris`             | `train` | https://huggingface.co/datasets/scikit-learn/iris             |
 | AE2     | `scikit-learn/churn-prediction` | `train` | https://huggingface.co/datasets/scikit-learn/churn-prediction |
+| EA3     | `scikit-learn/churn-prediction` | `train` | https://huggingface.co/datasets/scikit-learn/churn-prediction |
 
 ## Estructura de carpetas
 
@@ -35,11 +52,17 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
 │   ├── src/                 # HFDatasetLoader + DatasetSummarizer
 │   ├── notebooks/           # ea1_carga_y_transformaciones.ipynb
 │   └── resultados/          # iris_crudo.csv, iris_transformado.csv, resumen_dataset.txt
-└── AE2/
-    ├── documento/           # plantilla, generar vía script → .docx + .pdf
-    ├── src/                 # copias idénticas de EA1/src + generar_documento.py
-    ├── notebooks/           # ae2_exploracion_descriptiva.ipynb
-    └── resultados/          # churn_crudo.csv, churn_transformado.csv, resumen_dataframe.txt
+├── AE2/
+│   ├── documento/           # plantilla, generar vía script → .docx + .pdf
+│   ├── src/                 # copias idénticas de EA1/src + generar_documento.py
+│   ├── notebooks/           # ae2_exploracion_descriptiva.ipynb
+│   └── resultados/          # churn_crudo.csv, churn_transformado.csv, resumen_dataframe.txt
+└── EA3/
+    ├── documento/           # plantilla + Pedraza_Jeremy_AE3_*.docx / .pdf
+    ├── src/                 # copias de las clases + generar_documento.py (AE3)
+    ├── notebooks/           # ea3_transformacion_enriquecimiento.ipynb
+    └── resultados/          # churn_crudo.csv, churn_transformado.csv (enriquecido),
+                             # tabla_p1..p5 *.csv, resumen_dataframe.txt
 ```
 
 ## Pasos de ejecución
@@ -60,8 +83,14 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
    ```bash
    jupyter nbconvert --to notebook --execute --inplace EA1/notebooks/ea1_carga_y_transformaciones.ipynb
    jupyter nbconvert --to notebook --execute --inplace AE2/notebooks/ae2_exploracion_descriptiva.ipynb
+   jupyter nbconvert --to notebook --execute --inplace EA3/notebooks/ea3_transformacion_enriquecimiento.ipynb
    ```
    O abrirlos con `jupyter notebook` y ejecutar todas las celdas.
+4. **Regenerar el documento Word de EA3** (lee las cifras de `EA3/resultados/`):
+   ```bash
+   python EA3/src/generar_documento.py
+   ```
+   El `.docx` usa campos TOC; al abrirlo en Word, actualizar los índices con `Ctrl+A` y `F9`.
 
    **Google Colab:** el notebook de AE2 también corre en Colab sin configuración manual. La primera celda detecta el entorno: si no encuentra las clases en local, clona este repositorio e instala `datasets` automáticamente. Basta con `Runtime → Run all`. Requiere que el repositorio sea público (el clon usa HTTPS).
 
@@ -75,3 +104,10 @@ Una compañía de telecomunicaciones necesita anticipar el **abandono de cliente
   - `churn_crudo.csv` — dataset Churn tal como se descargó.
   - `churn_transformado.csv` — tras las transformaciones de preparación.
   - `resumen_dataframe.txt` — resumen descriptivo del DataFrame transformado.
+- **EA3/resultados/**
+  - `churn_crudo.csv` — dataset Churn sin modificar (versión de referencia).
+  - `churn_transformado.csv` — DataFrame transformado y enriquecido (26 columnas).
+  - `tabla_p1_churn_por_contrato.csv` … `tabla_p5_churn_por_num_servicios.csv` — una tabla por pregunta de negocio.
+  - `resumen_dataframe.txt` — resumen descriptivo del DataFrame final, generado automáticamente por código en cada ejecución.
+- **EA3/documento/**
+  - `Pedraza_Jeremy_AE3_Analitica_de_Datos.docx` / `.pdf` — documento de avance actualizado.
