@@ -7,7 +7,7 @@ RESUMEN DEL DATASET
    split           : train
    configuracion   : None
    revision        : None
-   fecha_consulta  : 2026-11-09T00:41:31.139492+00:00
+   fecha_consulta  : 2026-11-10T23:01:43.632517+00:00
    es_muestra      : False
 
 2. DIMENSIONES

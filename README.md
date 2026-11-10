@@ -29,7 +29,7 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
 | P4 | ¿Cómo difieren los cargos entre quienes cancelan y permanecen?            | `tabla_p4_cargos_por_churn.csv`            |
 | P5 | ¿Influye la cantidad de servicios adicionales en la cancelación?          | `tabla_p5_churn_por_num_servicios.csv`     |
 
-**Transformaciones (validadas con conteo de registros afectados):** T1 renombrado a `snake_case`; T2 conversión de `total_charges` a numérico (`pd.to_numeric(errors='coerce')`); T3 imputación de los 11 nulos de `total_charges` (clientes con `tenure = 0`) con `0.0`. Sin duplicados; sin nulos tras el tratamiento.
+**Transformaciones (validadas con conteo de registros afectados):** T1 renombrado a `snake_case`; T2 conversión de `total_charges` a numérico (`pd.to_numeric(errors='coerce')`); T3 imputación de los 11 nulos de `total_charges` (clientes con `tenure = 0`) con `0.0`. Sin duplicados; sin nulos tras el tratamiento. El notebook y el documento incluyen una **comparación antes/después** (filas, columnas, tipos, nulos y duplicados del DataFrame crudo frente al preparado).
 
 **Enriquecimiento (variables derivadas, sin fuentes externas):** `cargo_promedio_mensual` y `segmento_antiguedad` (de AE2); `churn_flag` (objetivo numérico), `num_servicios_adicionales` (conteo de 6 add-ons) y `grupo_cargo_mensual` (nivel de gasto). DataFrame final: 7043 filas × 26 columnas.
 
@@ -90,9 +90,11 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
    ```bash
    python EA3/src/generar_documento.py
    ```
-   El `.docx` usa campos TOC; al abrirlo en Word, actualizar los índices con `Ctrl+A` y `F9`.
+   El `.docx` usa campos TOC para el índice de contenido y la **lista de tablas** (campos `SEQ Tabla`); al abrirlo en Word, actualizar los índices con `Ctrl+A` y `F9`.
 
-   **Google Colab:** el notebook de AE2 también corre en Colab sin configuración manual. La primera celda detecta el entorno: si no encuentra las clases en local, clona este repositorio e instala `datasets` automáticamente. Basta con `Runtime → Run all`. Requiere que el repositorio sea público (el clon usa HTTPS).
+   > **Rutas relativas:** el notebook de EA3 se ejecuta desde la raíz del repositorio y sus salidas muestran rutas relativas (p. ej. `EA3/resultados/churn_transformado.csv`), no rutas absolutas del equipo.
+
+   **Google Colab:** los notebooks de AE2 y EA3 también corren en Colab sin configuración manual. La primera celda detecta el entorno: si no encuentra las clases en local, clona este repositorio e instala `datasets` automáticamente. Basta con `Runtime → Run all`. Requiere que el repositorio sea público (el clon usa HTTPS).
 
 ## Archivos generados
 
@@ -110,4 +112,4 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
   - `tabla_p1_churn_por_contrato.csv` … `tabla_p5_churn_por_num_servicios.csv` — una tabla por pregunta de negocio.
   - `resumen_dataframe.txt` — resumen descriptivo del DataFrame final, generado automáticamente por código en cada ejecución.
 - **EA3/documento/**
-  - `Pedraza_Jeremy_AE3_Analitica_de_Datos.docx` / `.pdf` — documento de avance actualizado.
+  - `Pedraza_Jeremy_AE3_Analitica_de_Datos.docx` / `.pdf` — documento de avance actualizado, con comparación antes/después (Tabla 2), diccionario, resultados por pregunta e índice de tablas.

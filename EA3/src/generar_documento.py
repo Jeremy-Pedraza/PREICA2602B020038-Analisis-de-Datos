@@ -156,6 +156,27 @@ def add_field(paragraph, instr: str) -> None:
         r._r.append(el)
 
 
+def _add_seq_tabla(paragraph, numero: int) -> None:
+    """Inserta un campo SEQ Tabla para que el indice 'Lista de tablas'
+    (campo TOC \\c "Tabla") recoja la numeracion. El texto visible usa
+    ``numero`` como marcador; Word lo recalcula con F9."""
+    r = paragraph.add_run()
+    r.bold = True
+    fld = OxmlElement("w:fldChar")
+    fld.set(qn("w:fldCharType"), "begin")
+    it = OxmlElement("w:instrText")
+    it.set(qn("xml:space"), "preserve")
+    it.text = "SEQ Tabla \\* ARABIC"
+    sep = OxmlElement("w:fldChar")
+    sep.set(qn("w:fldCharType"), "separate")
+    txt = OxmlElement("w:t")
+    txt.text = str(numero)
+    end = OxmlElement("w:fldChar")
+    end.set(qn("w:fldCharType"), "end")
+    for el in (fld, it, sep, txt, end):
+        r._r.append(el)
+
+
 def h1(doc, texto):
     return doc.add_heading(texto, level=1)
 
@@ -190,7 +211,9 @@ def agregar_tabla(doc, encabezados, filas, numero, titulo, fuente):
         for i, valor in enumerate(fila):
             celdas[i].text = str(valor)
     cap = doc.add_paragraph(style="Caption")
-    cap.add_run(f"Tabla {numero}. {titulo} ").bold = True
+    cap.add_run("Tabla ").bold = True
+    _add_seq_tabla(cap, numero)
+    cap.add_run(f". {titulo} ").bold = True
     cap.add_run(f"Fuente: {fuente}")
     return tabla
 
@@ -395,12 +418,40 @@ def construir() -> None:
         "que no se eliminaron registros; tras el tratamiento, el DataFrame no presenta "
         "valores nulos. Ningun dato se elimino ni se imputo sin justificar el criterio.",
     )
+    parrafo(
+        doc,
+        "La Tabla 2 compara el DataFrame antes (crudo) y despues (preparado) en "
+        "filas, columnas, tipos y valores nulos, como evidencia del efecto de las "
+        "transformaciones y de los controles de calidad aplicados.",
+    )
+    dtype_tc_crudo = str(df_crudo["TotalCharges"].dtype)
+    dtype_tc_trans = str(df["total_charges"].dtype)
+    comparacion = [
+        ["Filas", n_crudo_f, n_f,
+         "Sin eliminacion de registros" if n_f == n_crudo_f
+         else f"{n_f - n_crudo_f:+d}"],
+        ["Columnas", n_crudo_c, n_c,
+         f"{n_c - n_crudo_c:+d} por el enriquecimiento (AE3)"],
+        ["Tipo de total_charges", dtype_tc_crudo, dtype_tc_trans,
+         "Corregido de texto a numerico"],
+        ["Valores nulos (total)", int(df_crudo.isna().sum().sum()),
+         int(df.isna().sum().sum()),
+         f"{nulos_tc} detectados en total_charges al convertir, imputados con 0.0"],
+        ["Filas duplicadas", int(df_crudo.duplicated().sum()),
+         int(df.duplicated().sum()), "Sin duplicados en ninguna etapa"],
+    ]
+    agregar_tabla(
+        doc, ["Aspecto", "Antes (crudo)", "Despues (preparado)", "Observacion"],
+        comparacion, 2,
+        "Comparacion del DataFrame antes y despues de la preparacion.",
+        "elaboracion propia a partir de churn_crudo.csv y churn_transformado.csv.",
+    )
 
     h2(doc, "3.3 Enriquecimiento")
     parrafo(
         doc,
         "Se incorporaron variables derivadas a partir de las variables existentes, sin "
-        "usar fuentes externas. La Tabla 2 resume su formula, significado y utilidad.",
+        "usar fuentes externas. La Tabla 3 resume su formula, significado y utilidad.",
     )
     enriq = [
         ["cargo_promedio_mensual", "total_charges / tenure (0 si tenure=0)",
@@ -416,7 +467,7 @@ def construir() -> None:
     ]
     agregar_tabla(
         doc, ["Variable", "Formula / regla", "Significado", "Utilidad"],
-        enriq, 2, "Variables incorporadas en el enriquecimiento (AE3).",
+        enriq, 3, "Variables incorporadas en el enriquecimiento (AE3).",
         "elaboracion propia.",
     )
     parrafo(
@@ -428,7 +479,7 @@ def construir() -> None:
     h2(doc, "3.4 Diccionario de datos actualizado")
     parrafo(
         doc,
-        f"La Tabla 3 presenta el diccionario del DataFrame final ({n_c} variables), "
+        f"La Tabla 4 presenta el diccionario del DataFrame final ({n_c} variables), "
         f"que incorpora las {n_vars_ae3} variables nuevas de AE3 (churn_flag, "
         f"num_servicios_adicionales y grupo_cargo_mensual) ademas de las derivadas en "
         f"AE2.",
@@ -449,7 +500,7 @@ def construir() -> None:
         filas_dicc.append([col, significado, dtype, detalle])
     agregar_tabla(
         doc, ["Variable", "Significado", "Tipo", "Categorias / unidad"],
-        filas_dicc, 3, "Diccionario de datos actualizado (DataFrame final).",
+        filas_dicc, 4, "Diccionario de datos actualizado (DataFrame final).",
         "elaboracion propia a partir de EA3/resultados/churn_transformado.csv.",
     )
 
@@ -457,12 +508,12 @@ def construir() -> None:
     parrafo(
         doc,
         "El desarrollo se realizo en Python con Jupyter Notebook, control de versiones "
-        "con Git y alojamiento en GitHub. La Tabla 4 lista las librerias y versiones "
+        "con Git y alojamiento en GitHub. La Tabla 5 lista las librerias y versiones "
         "minimas segun requirements.txt.",
     )
     filas_req = [[n, v] for n, v in leer_versiones_requirements()]
     agregar_tabla(
-        doc, ["Libreria / herramienta", "Version"], filas_req, 4,
+        doc, ["Libreria / herramienta", "Version"], filas_req, 5,
         "Herramientas y versiones del entorno.",
         "elaboracion propia a partir de requirements.txt.",
     )
@@ -480,7 +531,7 @@ def construir() -> None:
 
     h2(doc, "4.1 P1 - Cancelacion por tipo de contrato")
     tabla_desde_df(
-        doc, tablas["p1"], 5, "Tasa de cancelacion por tipo de contrato.",
+        doc, tablas["p1"], 6, "Tasa de cancelacion por tipo de contrato.",
         "elaboracion propia a partir de EA3/resultados/tabla_p1_churn_por_contrato.csv.",
         encabezados=["contract", "clientes", "cancelaciones", "tasa_churn_%"],
     )
@@ -495,7 +546,7 @@ def construir() -> None:
 
     h2(doc, "4.2 P2 - Cancelacion por antiguedad")
     tabla_desde_df(
-        doc, tablas["p2"], 6, "Tasa de cancelacion por segmento de antiguedad.",
+        doc, tablas["p2"], 7, "Tasa de cancelacion por segmento de antiguedad.",
         "elaboracion propia a partir de EA3/resultados/tabla_p2_churn_por_antiguedad.csv.",
         encabezados=["segmento_antiguedad", "clientes", "cancelaciones", "tasa_churn_%"],
     )
@@ -509,12 +560,12 @@ def construir() -> None:
 
     h2(doc, "4.3 P3 - Cancelacion por metodo de pago y servicio de internet")
     tabla_desde_df(
-        doc, tablas["p3a"], 7, "Tasa de cancelacion por metodo de pago.",
+        doc, tablas["p3a"], 8, "Tasa de cancelacion por metodo de pago.",
         "elaboracion propia a partir de EA3/resultados/tabla_p3a_churn_por_metodo_pago.csv.",
         encabezados=["payment_method", "clientes", "cancelaciones", "tasa_churn_%"],
     )
     tabla_desde_df(
-        doc, tablas["p3b"], 8, "Tasa de cancelacion por tipo de servicio de internet.",
+        doc, tablas["p3b"], 9, "Tasa de cancelacion por tipo de servicio de internet.",
         "elaboracion propia a partir de EA3/resultados/tabla_p3b_churn_por_internet.csv.",
         encabezados=["internet_service", "clientes", "cancelaciones", "tasa_churn_%"],
     )
@@ -528,7 +579,7 @@ def construir() -> None:
 
     h2(doc, "4.4 P4 - Facturacion comparada entre grupos")
     tabla_desde_df(
-        doc, tablas["p4"], 9, "Facturacion promedio segun estado de cancelacion.",
+        doc, tablas["p4"], 10, "Facturacion promedio segun estado de cancelacion.",
         "elaboracion propia a partir de EA3/resultados/tabla_p4_cargos_por_churn.csv.",
         encabezados=["churn", "clientes", "tenure_prom", "monthly_charges_prom",
                      "total_charges_prom", "cargo_promedio_mensual_prom"],
@@ -543,7 +594,7 @@ def construir() -> None:
 
     h2(doc, "4.5 P5 - Cancelacion por numero de servicios adicionales")
     tabla_desde_df(
-        doc, tablas["p5"], 10, "Tasa de cancelacion por numero de servicios adicionales.",
+        doc, tablas["p5"], 11, "Tasa de cancelacion por numero de servicios adicionales.",
         "elaboracion propia a partir de EA3/resultados/tabla_p5_churn_por_num_servicios.csv.",
         encabezados=["num_servicios_adicionales", "clientes", "cancelaciones", "tasa_churn_%"],
     )
