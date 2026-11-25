@@ -1,0 +1,165 @@
+S30 - EA4 -Proyecto integrador - Métricas y Visualización de Datos
+Fecha de entrega Viernes a las 23:59 Puntos 100 Entregando una URL de página web o una carga de archivo Intentos 0 Intentos permitidos 2 Disponible 9 de nov en 0:00 - 27 de nov en 23:59
+ANALÍTICA DE DATOS · PROYECTO INTEGRADOR · PRESENTACIÓN FINAL
+
+AE4 S30 - Proyecto integrador - Métricas y Visualización de Datos
+Objetivo
+Objetivo y alcance
+Presentar las respuestas a las preguntas de negocio y a la necesidad del proyecto mediante métricas y gráficos en una aplicación de Streamlit, vinculada al mismo repositorio de GitHub trabajado durante el periodo.
+
+Utiliza los datos preparados y los resultados del proyecto. Cada gráfico debe ayudar a responder una pregunta y estar acompañado de una interpretación clara.
+
+Recordatorio
+Presentación y evaluación en clase
+La presentación se realizará en los espacios de Triple A de las semanas 7 y 8. Cada equipo dispone de 10 minutos y todos sus integrantes deben participar.
+
+La nota se dará al final de la clase a quienes presenten la entrega. La entrega en la plataforma debe acompañarse de la presentación del proyecto en clase.
+
+Instrucciones
+Instrucciones
+Prepara la aplicación y la presentación con base en las siguientes instrucciones:
+
+1. Métricas y gráficos2. Streamlit3. Repositorio4. Presentación
+1. Construye las métricas y los gráficos
+Retoma la necesidad y las preguntas de negocio del proyecto. Para cada pregunta:
+
+Define la métrica utilizada, su cálculo y su unidad.
+Selecciona un gráfico que permita comparar o describir los resultados. Incluye título, etiquetas, unidades y periodo cuando corresponda.
+Explica qué muestran los datos, cómo responden la pregunta y qué decisión podrían apoyar.
+Indica las limitaciones. Distingue ingresos de rentabilidad y evita atribuir causas que el análisis no demuestra.
+Ejemplo: para responder qué productos aportan más ventas en un restaurante, mostrar unidades, valor vendido y participación por producto. Explicar qué producto destaca en cada medida y qué información adicional se necesitaría para tomar una decisión.
+
+Evidencia: métricas y gráficos coherentes con los datos del proyecto, acompañados de respuestas e interpretaciones.
+
+2. Presenta los resultados en Streamlit
+Desarrolla una aplicación de Streamlit que permita recorrer los resultados del proyecto y presentar:
+
+La necesidad, las preguntas de negocio y una breve identificación del dataset.
+Las métricas y los gráficos que responden cada pregunta.
+Las conclusiones, recomendaciones y limitaciones del análisis.
+La aplicación debe cargar los datos preparados o las tablas de resultados del proyecto. Verifica que las cifras coincidan con el notebook y que los gráficos se generen a partir de esos datos.
+
+La aplicación debe estar vinculada al mismo repositorio trabajado durante el periodo. Conserva allí su código, las dependencias y los archivos o instrucciones necesarios para acceder a los datos. Si la publicas, vincula el despliegue a ese repositorio y comparte el enlace de acceso.
+
+Evidencia: aplicación funcionando durante la presentación y código disponible en el repositorio.
+
+3. Actualiza el repositorio y el documento
+Conserva el historial del proyecto y registra los cambios de esta entrega con commits descriptivos.
+
+Publica el código de Streamlit y los archivos necesarios para reproducir el análisis y la aplicación.
+Actualiza el README.md con las instrucciones de ejecución, las dependencias, las rutas de datos y el enlace de la aplicación si está publicada.
+Incluye el documento completo del proyecto en formato PDF, integrando el trabajo desarrollado durante el periodo: portada, contenido e índices que correspondan, introducción, necesidad, justificación, objetivos, marco teórico, metodología, transformación y enriquecimiento de datos, métricas y visualizaciones, resultados y discusión, conclusiones y referencias.
+Verifica que el docente pueda acceder al repositorio y a la aplicación.
+Evidencia: repositorio completo, README actualizado y documento completo en PDF, coherente con la aplicación y los resultados presentados. Publica el PDF en el repositorio y adjúntalo en la plataforma.
+
+4. Prepara la presentación de 10 minutos
+Durante los 10 minutos, presenta el problema y demuestra en Streamlit cómo los resultados responden las preguntas de negocio. Distribuye la intervención entre todos los integrantes del equipo.
+
+Distribución sugerida del tiempo:
+
+2 minutos: necesidad, preguntas de negocio y datos utilizados.
+6 minutos: demostración de la aplicación, métricas, gráficos y respuestas.
+2 minutos: conclusiones, recomendaciones y limitaciones.
+Ensayen la presentación y comprueben previamente la ejecución de la aplicación. Cada integrante debe explicar una parte del trabajo y su relación con la necesidad analítica.
+
+Se evaluará: la respuesta a las preguntas de negocio, la coherencia de las métricas, la claridad de los gráficos, el funcionamiento de Streamlit, la participación de todos los integrantes y el respaldo del trabajo en el repositorio.
+
+Entregar
+Entregar
+Adjunta el documento completo del proyecto en formato PDF en esta actividad. El mismo PDF debe estar disponible en el repositorio.
+Comparte el enlace al mismo repositorio de GitHub trabajado durante el periodo y el enlace de Streamlit si la aplicación está publicada.
+Presenta la aplicación funcionando en Triple A de las semanas 7 y 8, con participación de todos los integrantes y una duración de 10 minutos por equipo.
+Verifica los enlaces y confirma la entrega en la plataforma.
+HORARIO:
+
+
+Horarios por grupo
+Cada presentación dura 10 minutos. Conéctense unos minutos antes de su turno y tengan listo su material para compartir pantalla.
+
+Semana 7 - 2026/11/17
+Día	Hora (p. m.)	Grupo / Estudiante
+Martes	6:00 – 6:10	AE_Grupo 1
+Martes	6:10 – 7:20	AE_Grupo 2
+Martes	6:20 – 6:30	AE_Grupo 3
+Martes	6:30 – 6:40	AE_Grupo 4
+Martes	6:40 – 6:50	AE_Grupo 5
+Martes	6:50 – 7:00	AE_Grupo 6
+Semana 8 - 2026/11/23-24
+Día	Hora (p. m.)	Grupo / Estudiante
+Lunes	6:00 – 6:10	AE_Grupo 7
+Lunes	6:10 – 6:20	AE_Grupo 8
+Lunes	6:20 – 6:30	AE_Grupo 9
+Lunes	6:30 – 6:40	AE_Grupo 10
+Lunes	6:40 – 6:50	AE_Grupo 11
+Lunes	6:50 – 7:00	AE_Grupo 12
+Lunes	7:00 – 7:10	AE_Grupo 13
+Lunes	7:10 – 7:20	AE_Grupo 17
+Lunes	7:20 – 7:30	AE_Grupo 18
+Lunes	7:30 – 7:40	Diego Mauricio Bedoya Valencia
+Lunes	7:40 – 7:50	Brandon Stiven Cano Molina
+Lunes	7:50 – 8:00	Daniela Diaz Gomez
+Martes	6:30 – 6:40	Javier Hernan Martinez Ceballos
+Martes	6:40 – 6:50	Felipe Fernández Rodriguez
+Martes	6:40 – 6:50	Sofia Miranda Cubides
+Martes	6:50 – 7:00	Jesus Joel Gonzalez Castro
+Martes	6:50 – 7:00	Jose Quevin Ordoñez Sanchez
+Martes	7:00 – 7:10	Jose David Osorio Gallego
+Martes	7:10 – 7:20	Jorge Mario Paniagua Saraz
+Martes	7:20 – 7:30	Kedwin Stiven Parga Arciniegas
+Martes	7:30 – 7:40	Jhonny Arley Tobón Acevedo
+Martes	7:40 – 7:50	Carlos Esteban Trujillo Paz
+Martes	7:50 – 8:00	Santiago Andrés Valencia Duque
+La nota se dará al final de la clase a quienes presenten la entrega. Consulta en la plataforma la fecha y el porcentaje de la actividad.
+
+Recordatorio
+Lista de revisión antes de presentar
+Cada pregunta de negocio tiene una respuesta sustentada en métricas y gráficos.
+La aplicación de Streamlit funciona y utiliza los datos del proyecto.
+La aplicación está vinculada al repositorio trabajado durante el periodo.
+El README está actualizado y el documento completo en PDF está incluido en el repositorio y adjunto en la plataforma.
+Todos los integrantes participarán y la presentación está preparada para 10 minutos.
+Los enlaces y los archivos de la entrega son accesibles.
+Rúbrica
+Rúbrica AE4 – Métricas y Visualización de Datos
+Rúbrica AE4 – Métricas y Visualización de Datos
+Criterios	Calificaciones	Pts
+Este criterio depende de una competencia de aprendizajePuntualidad y enlace de entrega
+10 para >6.0 pts
+Entrega dentro del plazo e incluye enlaces válidos y accesibles al repositorio y a la aplicación de Streamlit.
+6 para >0.0 pts
+Entrega dentro del plazo, pero alguno de los enlaces presenta errores o restricciones de acceso.
+0 pts
+Entrega fuera del plazo o no incluye los enlaces.
+10 pts
+Este criterio depende de una competencia de aprendizajeDocumento — Informe completo en PDF
+25 para >15.0 pts
+Entrega el documento completo en PDF, con las etapas del proyecto, resultados, discusión, conclusiones y referencias. Su contenido coincide con la aplicación.
+15 para >0.0 pts
+Entrega el PDF, pero faltan apartados o presenta inconsistencias con los resultados mostrados.
+0 pts
+No entrega el documento completo en PDF.
+25 pts
+Este criterio depende de una competencia de aprendizajeMétricas y visualización en Streamlit
+30 para >18.0 pts
+La aplicación funciona y responde las preguntas de negocio mediante métricas y gráficos claros, correctos y sustentados en los datos del proyecto.
+18 para >0.0 pts
+La aplicación funciona parcialmente o presenta métricas, gráficos o respuestas incompletas o inconsistentes.
+0 pts
+No presenta una aplicación funcional que permita responder las preguntas de negocio.
+30 pts
+Este criterio depende de una competencia de aprendizajePresentación y participación del equipo
+25 para >15.0 pts
+Presenta en Triple A de las semanas 7 y 8, cumple los 10 minutos y participan todos los integrantes. Explican las respuestas, conclusiones y limitaciones mediante la aplicación.
+15 para >0.0 pts
+Realiza la presentación, pero incumple el tiempo, no participan todos o la explicación de los resultados es incompleta.
+0 pts
+No realiza la presentación en clase.
+25 pts
+Este criterio depende de una competencia de aprendizajeVersionamiento en GitHub y README.
+10 para >6.0 pts
+Streamlit está vinculado al repositorio trabajado durante el periodo. Incluye código, archivos necesarios, PDF completo, commits de avance y README actualizado.
+6 para >0.0 pts
+Presenta el repositorio, pero faltan archivos, instrucciones, historial de avances o evidencia de vinculación con Streamlit.
+0 pts
+No presenta el proyecto en el repositorio trabajado durante el periodo.
+10 pts

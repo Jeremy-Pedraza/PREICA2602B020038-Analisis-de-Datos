@@ -1,6 +1,8 @@
 # PREICA2602B020038 - Analítica de Datos
 
-Repositorio de las entregas **EA1** (carga y creación de dataset), **AE2** (primera etapa del proyecto integrador) y **EA3** (transformación y enriquecimiento) de la asignatura Proyecto Integrado III – Analítica de Datos.
+Repositorio de las entregas **EA1** (carga y creación de dataset), **AE2** (primera etapa del proyecto integrador), **EA3** (transformación y enriquecimiento) y **EA4** (métricas, visualización y aplicación de Streamlit — entrega final) de la asignatura Proyecto Integrado III – Analítica de Datos.
+
+> **Aplicación Streamlit (EA4):** `streamlit run EA4/app/streamlit_app.py` · **Enlace publicado:** _pendiente de desplegar en Streamlit Community Cloud_ (ver sección [Métricas y visualización (EA4)](#métricas-y-visualización-ea4)).
 
 ## Propósito
 
@@ -33,6 +35,27 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
 
 **Enriquecimiento (variables derivadas, sin fuentes externas):** `cargo_promedio_mensual` y `segmento_antiguedad` (de AE2); `churn_flag` (objetivo numérico), `num_servicios_adicionales` (conteo de 6 add-ons) y `grupo_cargo_mensual` (nivel de gasto). DataFrame final: 7043 filas × 26 columnas.
 
+## Métricas y visualización (EA4)
+
+La etapa final (EA4) responde las mismas cinco preguntas de negocio mediante **métricas y gráficos** y los presenta en una **aplicación de Streamlit** vinculada a este repositorio. Para cada pregunta se define la métrica (cálculo y unidad), se elige un gráfico de comparación y se acompaña de una interpretación, la decisión que apoya y sus limitaciones.
+
+| #   | Métrica                                                   | Gráfico                       |
+| --- | -------------------------------------------------------- | ----------------------------- |
+| P1  | Tasa de churn por tipo de contrato (%)                   | Barras por contrato           |
+| P2  | Tasa de churn por segmento de antigüedad (%)             | Barras por segmento           |
+| P3a | Tasa de churn por método de pago (%)                     | Barras por método de pago     |
+| P3b | Tasa de churn por servicio de internet (%)               | Barras por servicio           |
+| P4  | Cargo mensual y antigüedad promedio por estado de churn  | Barras agrupadas (doble eje)  |
+| P5  | Tasa de churn por número de servicios adicionales (%)    | Barras por nº de servicios    |
+
+**Indicadores globales (necesidad):** 7043 clientes · tasa de churn global **26,54 %** · ~**30,5 %** del ingreso mensual recurrente concentrado en clientes que cancelan.
+
+**Fuente única de cifras:** el módulo `EA4/src/metricas.py` carga los datos y las tablas de resultados y calcula todos los indicadores en tiempo de ejecución. La app (Plotly, interactivo) y el documento PDF (figuras Matplotlib en `EA4/resultados/figuras/`) usan ese módulo, por lo que **muestran cifras idénticas** al notebook.
+
+**Documento completo (PDF):** `EA4/documento/Pedraza_Jeremy_AE4_Analitica_de_Datos.pdf` integra todas las etapas del periodo (portada, índices de contenido/tablas/figuras, introducción, necesidad, justificación, objetivos, marco teórico, metodología, transformación y enriquecimiento, métricas y visualizaciones, resultados y discusión, conclusiones y referencias).
+
+**Despliegue en Streamlit Community Cloud:** crear la app apuntando a este repositorio, rama `main`, archivo principal `EA4/app/streamlit_app.py` (las dependencias se toman de `requirements.txt` de la raíz). Tras publicar, reemplazar el enlace en este README y en `EA4/src/generar_documento.py` (`STREAMLIT_URL`).
+
 ## Datasets usados
 
 | Entrega | Dataset                         | Split   | Enlace                                                        |
@@ -57,12 +80,19 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
 │   ├── src/                 # copias idénticas de EA1/src + generar_documento.py
 │   ├── notebooks/           # ae2_exploracion_descriptiva.ipynb
 │   └── resultados/          # churn_crudo.csv, churn_transformado.csv, resumen_dataframe.txt
-└── EA3/
-    ├── documento/           # plantilla + Pedraza_Jeremy_AE3_*.docx / .pdf
-    ├── src/                 # copias de las clases + generar_documento.py (AE3)
-    ├── notebooks/           # ea3_transformacion_enriquecimiento.ipynb
-    └── resultados/          # churn_crudo.csv, churn_transformado.csv (enriquecido),
-                             # tabla_p1..p5 *.csv, resumen_dataframe.txt
+├── EA3/
+│   ├── documento/           # plantilla + Pedraza_Jeremy_AE3_*.docx / .pdf
+│   ├── src/                 # copias de las clases + generar_documento.py (AE3)
+│   ├── notebooks/           # ea3_transformacion_enriquecimiento.ipynb
+│   └── resultados/          # churn_crudo.csv, churn_transformado.csv (enriquecido),
+│                            # tabla_p1..p5 *.csv, resumen_dataframe.txt
+└── EA4/
+    ├── app/                 # streamlit_app.py (aplicación de métricas y gráficos)
+    ├── src/                 # clases + metricas.py (fuente única) +
+    │                        # generar_figuras.py + generar_documento.py (doc completo)
+    ├── documento/           # plantilla + Pedraza_Jeremy_AE4_*.docx / .pdf (informe final)
+    └── resultados/          # datos preparados, tabla_p1..p5 *.csv, resumen_dataframe.txt
+                             # y figuras/ (PNG de los gráficos del documento)
 ```
 
 ## Pasos de ejecución
@@ -95,6 +125,17 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
    > **Rutas relativas:** el notebook de EA3 se ejecuta desde la raíz del repositorio y sus salidas muestran rutas relativas (p. ej. `EA3/resultados/churn_transformado.csv`), no rutas absolutas del equipo.
 
    **Google Colab:** los notebooks de AE2 y EA3 también corren en Colab sin configuración manual. La primera celda detecta el entorno: si no encuentra las clases en local, clona este repositorio e instala `datasets` automáticamente. Basta con `Runtime → Run all`. Requiere que el repositorio sea público (el clon usa HTTPS).
+5. **Ejecutar la aplicación de Streamlit (EA4)** desde la raíz del repositorio:
+   ```bash
+   streamlit run EA4/app/streamlit_app.py
+   ```
+   La app lee los datos de `EA4/resultados/` y muestra la necesidad, las cinco preguntas con sus métricas y gráficos interactivos, y las conclusiones. No requiere conexión a internet ni descargar el dataset.
+6. **Regenerar las figuras y el documento completo (EA4)** (leen las cifras de `EA4/resultados/`):
+   ```bash
+   python EA4/src/generar_figuras.py     # PNG de los gráficos (para el PDF)
+   python EA4/src/generar_documento.py   # informe final .docx
+   ```
+   El `.docx` usa campos TOC para los índices de contenido, tablas y figuras, y campos `SEQ`. Para resolverlos y exportar el PDF sin abrir Word, se usa LibreOffice en modo headless (UNO): refresca los campos, actualiza los índices y exporta `writer_pdf_Export`. El PDF entregado ya muestra los índices resueltos.
 
 ## Archivos generados
 
@@ -113,3 +154,8 @@ La segunda etapa (EA3) continúa con el mismo dataset y repositorio. Transforma 
   - `resumen_dataframe.txt` — resumen descriptivo del DataFrame final, generado automáticamente por código en cada ejecución.
 - **EA3/documento/**
   - `Pedraza_Jeremy_AE3_Analitica_de_Datos.docx` / `.pdf` — documento de avance actualizado, con comparación antes/después (Tabla 2), diccionario, resultados por pregunta e índice de tablas.
+- **EA4/resultados/**
+  - `churn_transformado.csv`, `tabla_p1..p5 *.csv`, `resumen_dataframe.txt` — copias de los datos preparados y las tablas de resultados que consume la aplicación.
+  - `figuras/fig_p1..p5.png` — gráficos de cada pregunta (Matplotlib), embebidos en el PDF e idénticos a los de la app.
+- **EA4/documento/**
+  - `Pedraza_Jeremy_AE4_Analitica_de_Datos.docx` / `.pdf` — **informe final completo** del proyecto (todas las etapas), con índices de contenido, tablas y figuras resueltos.
