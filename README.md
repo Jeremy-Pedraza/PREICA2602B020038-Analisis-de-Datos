@@ -2,7 +2,7 @@
 
 Repositorio de las entregas **EA1** (carga y creación de dataset), **AE2** (primera etapa del proyecto integrador), **EA3** (transformación y enriquecimiento) y **EA4** (métricas, visualización y aplicación de Streamlit — entrega final) de la asignatura Proyecto Integrado III – Analítica de Datos.
 
-> **Aplicación Streamlit (EA4):** `streamlit run EA4/app/streamlit_app.py` · **Enlace publicado:** _pendiente de desplegar en Streamlit Community Cloud_ (ver sección [Métricas y visualización (EA4)](#métricas-y-visualización-ea4)).
+> **Aplicación Streamlit (EA4):** 🔗 **[https://bmt9gfifmznktubbdfv9k3.streamlit.app](https://bmt9gfifmznktubbdfv9k3.streamlit.app)** · ejecución local: `streamlit run EA4/app/streamlit_app.py` (ver sección [Métricas y visualización (EA4)](#métricas-y-visualización-ea4)).
 
 ## Propósito
 
@@ -54,7 +54,7 @@ La etapa final (EA4) responde las mismas cinco preguntas de negocio mediante **m
 
 **Documento completo (PDF):** `EA4/documento/Pedraza_Jeremy_AE4_Analitica_de_Datos.pdf` integra todas las etapas del periodo (portada, índices de contenido/tablas/figuras, introducción, necesidad, justificación, objetivos, marco teórico, metodología, transformación y enriquecimiento, métricas y visualizaciones, resultados y discusión, conclusiones y referencias).
 
-**Despliegue en Streamlit Community Cloud:** crear la app apuntando a este repositorio, rama `main`, archivo principal `EA4/app/streamlit_app.py` (las dependencias se toman de `requirements.txt` de la raíz). Tras publicar, reemplazar el enlace en este README y en `EA4/src/generar_documento.py` (`STREAMLIT_URL`).
+**Despliegue en Streamlit Community Cloud:** la app está publicada en **[https://bmt9gfifmznktubbdfv9k3.streamlit.app](https://bmt9gfifmznktubbdfv9k3.streamlit.app)** (repositorio, rama `main`, archivo principal `EA4/app/streamlit_app.py`; dependencias desde `requirements.txt` de la raíz). Es pública: cualquier persona con el enlace puede verla, sin iniciar sesión.
 
 ## Datasets usados
 

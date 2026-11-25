@@ -54,7 +54,7 @@ SALIDA = DOCUMENTO / "Pedraza_Jeremy_AE4_Analitica_de_Datos.docx"
 REQUIREMENTS = RAIZ / "requirements.txt"
 
 P = M.PROYECTO
-STREAMLIT_URL = "https://pendiente-de-publicar.streamlit.app"  # reemplazar tras desplegar
+STREAMLIT_URL = "https://bmt9gfifmznktubbdfv9k3.streamlit.app"  # app publicada (Streamlit Community Cloud)
 
 SIGNIFICADOS = {
     "customer_id": "Identificador unico del cliente.",
