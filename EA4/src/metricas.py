@@ -55,7 +55,7 @@ SECUENCIA = ["#1B5299", "#2E86AB", "#6FB1D6", "#D7263D", "#F46036", "#E4A010", "
 PROYECTO = {
     "titulo": "Analitica del abandono de clientes (churn) en telecomunicaciones",
     "integrante": "Jeremy Ivan Pedraza Hernandez",
-    "grupo": "Grupo 1",
+    "grupo": "AE_Grupo 10",
     "docente": "Andres Felipe Callejas Jaramillo",
     "asignatura": "Proyecto Integrado III - Analitica de Datos",
     "codigo": "PREICA2602B020038",

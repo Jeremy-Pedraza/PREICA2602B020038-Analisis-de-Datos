@@ -13,7 +13,7 @@ Cargar datasets públicos desde Hugging Face Hub, aplicarles transformaciones de
 - **Asignatura:** Proyecto Integrado III – Analítica de Datos
 - **Código:** PREICA2602B020038
 - **Docente:** Andrés Felipe Callejas Jaramillo
-- **Integrante:** Jeremy Iván Pedraza Hernández (Grupo 1)
+- **Integrante:** Jeremy Iván Pedraza Hernández (AE_Grupo 10)
 
 ## Necesidad analítica (AE2)
 
